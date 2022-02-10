@@ -3,25 +3,61 @@
 .root {
   display: flex;
   width: 100%;
+  position: relative;
 
-  .budget-item {
-    display: flex;
-    width: 100%;
-    background-color: $light-grey;
-    padding: 10px;
-    border-radius: 5px;
+  &:hover  {
+    .x-icon-button {
+      opacity: 1;
+      transform: scale(1);
+
+    }
+  }
+
+  .x-icon-button {
+    position: absolute;
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    background: $dark url("../../../assets/delete_icon.svg") no-repeat center;
+    right: -17px;
+    top: -17px;
+
+    transform: scale(0);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-in;
+    opacity: 0;
+
     cursor: pointer;
 
-    .description {
-      flex-grow: 1;
-      font-size: 18px;
-      margin-left: 5px;
+    &:hover {
+      transform: scale(1.2);
     }
+  }
+}
 
-    .amount {
-      padding: 5px;
-      border-radius: 3px;
-    }
+.budget-item {
+  display: flex;
+  width: 100%;
+  background-color: $light-grey;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: background 0.2s ease-out;
+  &:hover {
+    background: darken($light-grey, 2%);
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 18px;
+    margin-left: 5px;
+  }
+
+  .amount {
+    padding: 5px;
+    border-radius: 3px;
   }
 }
 

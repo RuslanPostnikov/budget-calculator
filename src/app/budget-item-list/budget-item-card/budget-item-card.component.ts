@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {BudgetItemModel} from "../../../shared/models/budget-item.model";
 
 @Component({
   selector: 'app-budget-item-card',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./budget-item-card.component.scss']
 })
 export class BudgetItemCardComponent implements OnInit {
+
+  @Input() item!: BudgetItemModel;
 
   constructor() { }
 
