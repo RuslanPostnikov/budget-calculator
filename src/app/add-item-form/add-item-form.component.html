@@ -16,8 +16,13 @@
       </div>
 
       <div class="field" style="width: 15%">
-        <button class="button is-primary" type="submit" [disabled]="!itemForm.valid"
-                style="width: 100%">Add</button>
+        <button class="button"
+                [ngClass]="{ 'is-primary': isNewItem, 'is-success': !isNewItem}"
+                type="submit" [disabled]="!itemForm.valid"
+                style="width: 100%">
+          <span *ngIf="isNewItem">Add</span>
+          <span *ngIf="!isNewItem">Save</span>
+        </button>
       </div>
 
     </div>
